@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Genre Classification - Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #453030c6;
+            background-image: url('https://th.bing.com/th/id/R.d9397026ab7722bfe987131013f0220b?rik=aCWDYR6V2IB7gw&riu=http%3a%2f%2fimg10.deviantart.net%2fb68d%2fi%2f2015%2f113%2f3%2f0%2fmusic_website_background_image_by_cooluani-d5ppvhl.jpg&ehk=38sho%2fgHAHJEucnVgzyWHJtPLqSLdN4pgx8jiYSzZKE%3d&risl=&pid=ImgRaw&r=0');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            text-align: center;
+            
+        }
+
+        h1 {
+            color: #f0e9e9;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .result-container {
+            background-color: #ffffff;
+            border-radius: 5px;
+            padding: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            opacity: 0.5;
+        }
+
+        h2 {
+            color: #000000;
+            margin-top: 0;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #000000;
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+
+        .spotify-icon {
+            position: absolute;
+            top: 150px;
+            left: 700px;
+            width: 85px;
+            height: 85px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="spotify-icon" src="{{ url_for('static', filename='OIP.jpg') }}" alt="Spotify Icon">
+        <h1>Music Genre Classification Result</h1>
+        <br>
+
+
+        <div class="result-container">
+            <h2>Predicted Genre:</h2>
+            <p>{{ genre }}</p>
+        </div>
+    </div>
+</body>
+</html>

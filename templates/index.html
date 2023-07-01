@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Genre Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://th.bing.com/th/id/R.d9397026ab7722bfe987131013f0220b?rik=aCWDYR6V2IB7gw&riu=http%3a%2f%2fimg10.deviantart.net%2fb68d%2fi%2f2015%2f113%2f3%2f0%2fmusic_website_background_image_by_cooluani-d5ppvhl.jpg&ehk=38sho%2fgHAHJEucnVgzyWHJtPLqSLdN4pgx8jiYSzZKE%3d&risl=&pid=ImgRaw&r=0');
+            opacity: 0.9;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding-top: 50px;
+            color: #ffffff;
+        }
+        
+        h1 {
+            margin-bottom: 30px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(249, 241, 241, 0.1);
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(87, 68, 68, 0.1);
+            text-align: left;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        label {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            
+        }
+        
+        .label-text {
+            width: 120px;
+            text-align: left;
+            margin-right: 10px;
+        }
+        
+        input[type="text"],
+        input[type="number"] {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .submit-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .spotify-icon {
+            position: absolute;
+            top: 48px;
+            left: 400px;
+            width: 85px;
+            height: 85px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <img class="spotify-icon" src="{{ url_for('static', filename='OIP.jpg') }}" alt="Spotify Icon">
+    <h1>Music Genre Classification</h1>
+    <form action="/predict" method="get">
+        <label for="energy">Energy:</label>
+        <input type="number" id="energy" name="energy" step="0.000001" min="0" max="1">
+        <br>
+
+        <label for="loudness">Loudness:</label>
+        <input type="number" id="loudness" name="loudness" step="0.001" min="-35" max="4">
+        <br>
+
+        <label for="speechiness">Speechiness:</label>
+        <input type="number" id="speechiness" name="speechiness" step="0.0001" min="0" max="1">
+        <br>
+
+        <label for="acousticness">Acousticness:</label>
+        <input type="number" id="acousticness" name="acousticness" step="0.000001" min="0" max="1">
+        <br>
+
+        <label for="instrumentalness">Instrumentalness:</label>
+        <input type="number" id="instrumentalness" name="instrumentalness" step="0.000001" min="0" max="1">
+        <br>
+
+        <label for="liveness">Liveness:</label>
+        <input type="number" id="liveness" name="liveness" step="0.0001" min="0" max="1">
+        <br>
+
+        <label for="valence">Valence:</label>
+        <input type="text" id="valence" name="valence" step="0.0001" min="0" max="1">
+        <br>
+
+        <label for="tempo">Tempo:</label>
+        <input type="number" id="tempo" name="tempo" step="0.001" min="50" max="250">
+        <br>
+
+        <label for="duration_ms">Duration (ms):</label>
+        <input type="number" id="duration_ms" name="duration_ms" step="1" min="11111" max="999999">
+        <br>
+
+        <div class="submit-button">
+            <input type="submit" value="Predict">
+        </div>
+    </form>
+</body>
+</html>
